@@ -7,7 +7,7 @@ from textblob import TextBlob
 from pattern.web import Google
 import streamlit.components.v1 as components
 from pattern.en import pluralize , singularize,comparative, superlative
-import codecs
+import io
 nlp = spacy.load('en_core_web_sm')
 
 #custom funtion 
@@ -16,7 +16,7 @@ def summary(text):
 
 # Custom Components Fxn
 def st_calculator(calc_html,width=1000,height=1350):
-	calc_file = codecs.open(calc_html,'r')
+	calc_file = io.open(calc_html,'r')
 	page = calc_file.read()
 	components.html(page,width=width,height=height,scrolling=False)
     
